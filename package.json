@@ -1,0 +1,25 @@
+{
+  "name": "crosshero-booking-playwright",
+  "version": "1.0.0",
+  "description": "CrossHero automated booking with Docker, Node.js and Playwright",
+  "main": "index.js",
+  "keywords": [
+    "crosshero",
+    "playwright",
+    "scrapping"
+  ],
+  "author": "Nauzet Hernandez <nauzethc@gmail.com>",
+  "license": "MIT",
+  "eslintConfig": {
+    "extends": "standard"
+  },
+  "dependencies": {
+    "commander": "^8.3.0",
+    "node-telegram-bot-api": "^0.54.0",
+    "playwright": "^1.16.3",
+    "simple-node-logger": "^21.8.12"
+  },
+  "devDependencies": {
+    "standard": "^16.0.4"
+  }
+}

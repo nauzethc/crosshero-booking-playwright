@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+  crosshero:
+    build: .
+    init: true
+    command: tail -F /dev/null
