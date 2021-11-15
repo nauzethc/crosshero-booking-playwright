@@ -49,8 +49,8 @@ Also you can configure `crontab` which is registered within container to run aut
 ### Run Docker container
 ```
 docker-compose up --build -d
-
 ```
+
 ### Book class from container
 ```bash
 docker exec -it CONTAINER_ID /bin/bash
