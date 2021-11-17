@@ -4,4 +4,3 @@ services:
   crosshero:
     build: .
     init: true
-    command: tail -F /dev/null
