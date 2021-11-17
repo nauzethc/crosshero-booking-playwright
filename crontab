@@ -1,2 +1,3 @@
-# Every monday, wednesday and friday at 18:30
+# Every sunday, wednesday, thursday and saturday at 18:30
+# register.sh will try to book 18:30 class on the next 5th day
 # 0 18  * * 0,3,4,6   /home/pwuser/app/register.sh
