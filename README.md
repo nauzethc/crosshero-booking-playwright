@@ -47,20 +47,20 @@ image from repositories.
 Also you can configure `crontab` which is registered within container to run automated bookings.
 
 ### Run Docker container
-```
+```bash
 docker-compose up --build -d
-
-# Bug: If Playwright doesn't install Chromium from Dockerfile, install manually
+```
+### Bug: If Playwright doesn't install Chromium from Dockerfile, install manually
+```bash
 docker exec -it --user pwuser CONTAINER_ID /bin/bash
-your-container:$ cd app && npx playwright install chromium
+your-container:~/app$ npx playwright install chromium
 ```
 
 ### Book class from container
 ```bash
 docker exec -it --user pwuser CONTAINER_ID /bin/bash
-your-container:$ cd app
-your-container:$ node index.js -p PROGRAM_HASH -d "DD/MM/YYYY" -t "HH:MM"
+your-container:~/app$ node index.js -p PROGRAM_HASH -d "DD/MM/YYYY" -t "HH:MM"
 
 # Or configure your crontab to automate tasks
-your-container:$ crontab -e
+your-container:~/app$ crontab -e
 ```
