@@ -11,7 +11,7 @@ USER pwuser
 
 # Install dependendies
 RUN npm install && touch bookings.log
-RUN npx playwright install
+RUN npx playwright install chromium
 
 # Copy source code
 COPY *.js register.sh ./
