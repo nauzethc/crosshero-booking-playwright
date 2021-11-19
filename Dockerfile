@@ -11,9 +11,13 @@ USER pwuser
 
 # Install dependendies
 RUN npm install && touch bookings.log
+RUN npx playwright install
 
-# Copy source code and install crontab
-COPY *.js register.sh crontab ./
+# Copy source code
+COPY *.js register.sh ./
+
+# Install crontab
+COPY crontab ./
 RUN crontab ./crontab
 
 # Run cron and keep container up
