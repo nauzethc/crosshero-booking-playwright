@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/playwright:focal
+FROM mcr.microsoft.com/playwright
 
 # Install cron
 RUN apt update && apt install -y cron
