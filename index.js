@@ -50,7 +50,7 @@ async function main() {
 
   // Step 2: Check login
   try {
-    await page.waitForSelector('select#class_program_id')
+    await page.waitForSelector('main#dashboard')
     log.info('Login success')
   } catch (loginError) {
     log.error('Login error')
@@ -130,7 +130,7 @@ async function main() {
 
   // Check is booked on class
   try {
-    await page.waitForSelector('.alert', options.page)
+    await page.waitForSelector('.alert-info', options.page)
     check.status = 'success'
     check.message = `CrossHero class at ${time} (${date}) was booked successfully`
   } catch { }
