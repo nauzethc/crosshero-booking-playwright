@@ -3,7 +3,7 @@ const { telegram } = require('./config')
 
 const bot = telegram.enabled
   ? new TelegramBot(telegram.token)
-  : { sendMessage: (_, message) => console.log(message) }
+  : { sendMessage: (_, message) => Promise.resolve(console.log(message)) }
 
 /*
  * Edit this function to create your own notification system
