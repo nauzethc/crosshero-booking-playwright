@@ -1,5 +1,5 @@
 const notify = require('./notify')
-const { chromium } = require('playwright')
+const { webkit } = require('playwright')
 const { options, crosshero } = require('./config')
 const { program } = require('commander')
 
@@ -25,11 +25,20 @@ if (programId && date && time) {
   console.log('Input params mandatory: program-id, date, time')
 }
 
+async function timer(seconds = 3) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve()
+    }, seconds * 1000)
+  })
+}
+
 // Main
 async function main() {
   // Load browser
-  const browser = await chromium.launch()
-  const page = await browser.newPage()
+  const browser = await webkit.launch(options.browser)
+  const context = await browser.newContext()
+  const page = await context.newPage()
 
   // Step 1: Login
   try {
@@ -37,6 +46,9 @@ async function main() {
     await page.waitForSelector('form#new_athlete')
     await page.type('form#new_athlete #athlete_email', crosshero.email)
     await page.type('form#new_athlete #athlete_password', crosshero.password)
+    // Fix: wait some time to enable reCAPTCHA validation
+    await timer(3)
+
     log.info('Sending credentials to CrossHero.com...')
     await Promise.all([
       page.waitForNavigation(),
